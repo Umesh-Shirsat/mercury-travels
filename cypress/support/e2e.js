@@ -15,6 +15,17 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+// cypress/support/e2e.js
+
+import '@badeball/cypress-cucumber-preprocessor/steps';
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // Ignore specific uncaught exceptions related to the Facebook chat plugin
+  if (err.message.includes("Cannot read properties of null (reading 'removeClass')")) {
+    return false;
+  }
+});
+
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
