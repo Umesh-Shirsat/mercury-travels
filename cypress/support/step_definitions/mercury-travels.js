@@ -21,7 +21,7 @@ When("User clicks on Customer Login", () => {
 //*********** */
 // Registration
 When("User registers", (table) => {
-  homepage.register(table);
+  cy.registerAPI(table);
 });
 
 // Fails
@@ -74,7 +74,7 @@ When("User logs in", (table) => {
 
 // Check for about us dropdown
 When("User clicks on about us tab", () => {
-  cy.loginAPI.eq(3).click();
+  homepage.getLogin().eq(3).click();
 });
 
 // Check for about us page
@@ -85,7 +85,7 @@ When("User clicks on about us option in dropdown", () => {
 });
 
 Then("User should visit about us page", () => {
-  getTitle().should("have.text", "About Us");
+  homepage.getTitle().should("have.text", "About Us");
 });
 
 // Check for branch page
@@ -107,7 +107,7 @@ When("User clicks on Testimonials option in dropdown", () => {
 });
 
 Then("User should visit Testimonials page", () => {
-  getTitle().should("have.text", "Testimonials");
+  homepage.getTitle().should("have.text", "Testimonials");
 });
 
 // Check for awards page
@@ -118,7 +118,7 @@ When("User clicks on Awards option in dropdown", () => {
 });
 
 Then("User should visit Awards page", () => {
-  getTitle().should("have.text", "Awards");
+  homepage.getTitle().should("have.text", "Awards");
 });
 
 // Check for careers page
@@ -129,7 +129,7 @@ When("User clicks on Careers option in dropdown", () => {
 });
 
 Then("User should visit Careers page", () => {
-  getTitle().should("have.text", "Careers");
+  homepage.getTitle().should("have.text", "Careers");
 });
 
 // Check for contact us page
@@ -140,7 +140,7 @@ When("User clicks on Contact Us option in dropdown", () => {
 });
 
 Then("User should visit Contact Us page", () => {
-  getTitle().should("have.text", "Contact Us");
+  homepage.getTitle().should("have.text", "Contact Us");
 });
 //********************************** */
 
