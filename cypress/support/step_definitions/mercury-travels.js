@@ -59,8 +59,11 @@ Then("User gets error of already registered", () => {
 // });
 
 //******************** */
+// When("User logs in", (table) => {
+//   homepage.login(table);
+// });
 When("User logs in", (table) => {
-  homepage.login(table);
+  cy.loginAPI(table);
 });
 
 // Then("User gets logged in", async () => {
@@ -71,7 +74,7 @@ When("User logs in", (table) => {
 
 // Check for about us dropdown
 When("User clicks on about us tab", () => {
-  homepage.getLogin().eq(3).click();
+  cy.loginAPI.eq(3).click();
 });
 
 // Check for about us page
@@ -82,7 +85,7 @@ When("User clicks on about us option in dropdown", () => {
 });
 
 Then("User should visit about us page", () => {
-  cy.get(".col-md-12.tittle.font30").should("have.text", "About Us");
+  getTitle().should("have.text", "About Us");
 });
 
 // Check for branch page
@@ -104,7 +107,7 @@ When("User clicks on Testimonials option in dropdown", () => {
 });
 
 Then("User should visit Testimonials page", () => {
-  cy.get(".col-md-12.tittle.font30").should("have.text", "Testimonials");
+  getTitle().should("have.text", "Testimonials");
 });
 
 // Check for awards page
@@ -115,7 +118,7 @@ When("User clicks on Awards option in dropdown", () => {
 });
 
 Then("User should visit Awards page", () => {
-  cy.get(".col-md-12.tittle.font30").should("have.text", "Awards");
+  getTitle().should("have.text", "Awards");
 });
 
 // Check for careers page
@@ -126,7 +129,7 @@ When("User clicks on Careers option in dropdown", () => {
 });
 
 Then("User should visit Careers page", () => {
-  cy.get(".col-md-12.tittle.font30").should("have.text", "Careers");
+  getTitle().should("have.text", "Careers");
 });
 
 // Check for contact us page
@@ -137,7 +140,7 @@ When("User clicks on Contact Us option in dropdown", () => {
 });
 
 Then("User should visit Contact Us page", () => {
-  cy.get(".col-md-12.tittle.font30").should("have.text", "Contact Us");
+  getTitle().should("have.text", "Contact Us");
 });
 //********************************** */
 
