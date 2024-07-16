@@ -14,7 +14,6 @@ Given("User opens mercury travels page", () => {
 });
 
 When("User clicks on Customer Login", () => {
-  // cy.get(".dropdown-toggle").eq(2).click();
   homepage.getLogin().eq(2).click();
 });
 
@@ -39,37 +38,15 @@ Then("User gets error of already registered", () => {
 });
 //*********** */
 
-// When("User clicks on register", () => {
-//   cy.get(
-//     "li[class='dropdown loggedout open'] li:nth-child(2) a:nth-child(1)"
-//   ).click();
-// });
-
-// When("Enters all the details", (table) => {
-//   const hash = table.hashes();
-//   for (const [key, value] of Object.entries(hash[0])) {
-//     cy.get(key).type(value);
-//   }
-// });
-
-// When("User clicks register on form", () => {
-//   cy.get(
-//     "div[id='modalUserLogin'] button[class='btn btn-lg btn-primary modal-btn ajax-submit']"
-//   ).click();
-// });
-
 //******************** */
-// When("User logs in", (table) => {
-//   homepage.login(table);
-// });
 When("User logs in", (table) => {
   cy.loginAPI(table);
 });
 
-// Then("User gets logged in", async () => {
-//   const welcome = await homepage.getLogin().text();
-//   expect(welcome.includes("world"));
-// });
+Then("User gets logged in", async () => {
+  const welcome = await homepage.getLogin().text();
+  expect(welcome.includes("world"));
+});
 //********************** */
 
 // Check for about us dropdown
@@ -167,4 +144,36 @@ Then("User should visit Insurance page", () => {
 
 Then("User should see 7 scrolling images", () => {
   cy.get(".int_banner2").should("have.lengthOf", 7);
+});
+
+//************************** */
+
+// Validate alerts
+When("User clicks on the toll free call option", () => {
+  cy.get(
+    "ul[class='nav navbar-nav navbar-right margin-right-logo'] div[class='phone-number']"
+  ).click();
+  cy.on("window:confirm", (str) => {
+    expect(str).to.equal(
+      "https://www.mercurytravels.co.in wants to open this application."
+    );
+  });
+});
+
+// Validate child tabs
+When("User clicks on Hotels tab", () => {
+  cy.get(".nav:nth-child(1) > li:nth-child(7) > a")
+    .invoke("removeAttr", "target")
+    .click();
+});
+
+Then("User should visit Hotels page", () => {
+  cy.origin("https://in.via.com", () => {
+    cy.get("h1").then((el) => {
+      const title = el.text();
+      if (title.includes("Book Best Hotel Deals")) {
+        expect(true).to.be.true;
+      }
+    });
+  });
 });

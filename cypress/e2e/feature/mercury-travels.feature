@@ -2,28 +2,13 @@ Feature: End to end testing of mercury travels website
 
     application Regression
 
-    # Scenario: user is registred successfully as a new user
-    #     Given User opens mercury travels page
-    #     When User clicks on Customer Login
-    #     When User clicks on register
-    #     When Enters all the details
-    #         # | firstname       | lastname       | email           | password           | confirm            | number         |
-    #         | #acc_first_name | #acc_last_name | #acc_user_email | #acc_user_password | #acc_user_passconf | #acc_mobile_no |
-    #         | xyz             | abc            | xyz@email.com   | 12345              | 12345              | 1234567890     |
-    #     When User clicks register on form
-    #     Then User should get registered
-
-
-
-
-
-    # Scenario: user is registred successfully as a new user
-    #     Given User opens mercury travels page
-    #     When User clicks on Customer Login
-    #     When User registers
-    #         | #acc_first_name | #acc_last_name | #acc_user_email | #acc_user_password | #acc_user_passconf | #acc_mobile_no |
-    #         | xyz2            | abc2           | xyz1@email.com  | 12345              | 12345              | 1234567890     |
-    #     Then User should get registered
+    Scenario: user is registred successfully as a new user
+        Given User opens mercury travels page
+        When User clicks on Customer Login
+        When User registers
+            | #acc_first_name | #acc_last_name | #acc_user_email | #acc_user_password | #acc_user_passconf | #acc_mobile_no |
+            | xyz2            | abc2           | xyz1@email.com  | 12345              | 12345              | 1234567890     |
+        Then User should get registered
 
     Scenario: user gets error of already registered
         Given User opens mercury travels page
@@ -39,7 +24,7 @@ Feature: End to end testing of mercury travels website
         When User logs in
             | #sign_user_email | #sign_user_password |
             | xyz@email.com    | 12345               |
-    # Then User gets logged in
+        Then User gets logged in
 
     Scenario: user goes to about us page
         Given User opens mercury travels page
@@ -77,10 +62,10 @@ Feature: End to end testing of mercury travels website
         When User clicks on Contact Us option in dropdown
         Then User should visit Contact Us page
 
-    # Scenario: user goes to Insurance page
-    #     Given User opens mercury travels page
-    #     When User clicks on Insurance tab
-    #     Then User should visit Insurance page
+    Scenario: user goes to Insurance page
+        Given User opens mercury travels page
+        When User clicks on Insurance tab
+        Then User should visit Insurance page
 
     Scenario: user goes to Forex page
         Given User opens mercury travels page
@@ -90,3 +75,15 @@ Feature: End to end testing of mercury travels website
     Scenario: number of images should be 7
         Given User opens mercury travels page
         Then User should see 7 scrolling images
+
+    @focus
+    Scenario: User gets an alert while making a toll free call
+        Given User opens mercury travels page
+        When User clicks on the toll free call option
+    # Then An alert should pop up prompting to open pick up app
+
+
+    Scenario: User gets an alert while making a toll free call
+        Given User opens mercury travels page
+        When User clicks on Hotels tab
+        Then User should visit Hotels page
