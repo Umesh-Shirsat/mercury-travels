@@ -11,11 +11,12 @@
   "description": "",
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
-    "cypress": "^13.13.0"
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1"
   },
   "devDependencies": {
     "allure-commandline": "^2.29.0",
-    "allure-cypress": "^3.0.0-beta.6"
+    "allure-cypress": "^3.0.0-beta.6",
+    "cypress": "^13.13.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
   }
 }
