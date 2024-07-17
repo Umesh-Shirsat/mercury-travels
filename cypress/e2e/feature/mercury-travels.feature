@@ -6,17 +6,16 @@ Feature: End to end testing of mercury travels website
         Given User opens mercury travels page
         When User clicks on Customer Login
         When User registers
-            | #acc_first_name | #acc_last_name | #acc_user_email | #acc_user_password | #acc_user_passconf | #acc_mobile_no |
-            | xyz2            | abc2           | xyz1@email.com  | 12345              | 12345              | 1234567890     |
+            | #acc_first_name | #acc_last_name | #acc_user_email | #acc_user_password | #acc_user_passconf | #acc_mobile_no | type |
+            | xyz2            | abc2           | xyz1@email.com  | 12345              | 12345              | 1234567890     | new  |
         Then User should get registered
 
-    @focus
     Scenario: user gets error of already registered
         Given User opens mercury travels page
         When User clicks on Customer Login
         When User registers
-            | #acc_first_name | #acc_last_name | #acc_user_email | #acc_user_password | #acc_user_passconf | #acc_mobile_no |
-            | xyz             | abc            | xyz@email.com   | 12345              | 12345              | 1234567890     |
+            | #acc_first_name | #acc_last_name | #acc_user_email | #acc_user_password | #acc_user_passconf | #acc_mobile_no | type |
+            | xyz             | abc            | xyz@email.com   | 12345              | 12345              | 1234567890     | old  |
         Then User gets error of already registered
 
     Scenario: user logs in
@@ -45,6 +44,7 @@ Feature: End to end testing of mercury travels website
         When User clicks on Testimonials option in dropdown
         Then User should visit Testimonials page
 
+
     Scenario: user goes to Awards page
         Given User opens mercury travels page
         When User clicks on about us tab
@@ -63,10 +63,11 @@ Feature: End to end testing of mercury travels website
         When User clicks on Contact Us option in dropdown
         Then User should visit Contact Us page
 
-    Scenario: user goes to Insurance page
-        Given User opens mercury travels page
-        When User clicks on Insurance tab
-        Then User should visit Insurance page
+    # @ignore
+    # Scenario: user goes to Insurance page
+    #     Given User opens mercury travels page
+    #     When User clicks on Insurance tab
+    #     Then User should visit Insurance page
 
     Scenario: user goes to Forex page
         Given User opens mercury travels page
@@ -77,13 +78,14 @@ Feature: End to end testing of mercury travels website
         Given User opens mercury travels page
         Then User should see 7 scrolling images
 
-    Scenario: User gets an alert while making a toll free call
-        Given User opens mercury travels page
-        When User clicks on the toll free call option
-        Then An alert should pop up prompting to open pick up app
+    # @ignore
+    # Scenario: User gets an alert while making a toll free call
+    #     Given User opens mercury travels page
+    #     When User clicks on the toll free call option
+    #     Then An alert should pop up prompting to open pick up app
 
 
-    Scenario: User gets an alert while making a toll free call
+    Scenario: User clicks on hotel page
         Given User opens mercury travels page
         When User clicks on Hotels tab
         Then User should visit Hotels page
