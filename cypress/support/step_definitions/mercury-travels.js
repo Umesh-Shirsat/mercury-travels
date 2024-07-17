@@ -20,7 +20,8 @@ When("User clicks on Customer Login", () => {
 //*********** */
 // Registration
 When("User registers", (table) => {
-  cy.registerAPI(table);
+  // cy.registerAPI(table);
+  cy.registerAPIfixture();
 });
 
 // Fails
@@ -40,11 +41,12 @@ Then("User gets error of already registered", () => {
 
 //******************** */
 When("User logs in", (table) => {
-  cy.loginAPI(table);
+  // cy.loginAPI(table);
+  cy.loginAPIfixture();
 });
 
-Then("User gets logged in", async () => {
-  const welcome = await homepage.getLogin().text();
+Then("User gets logged in", () => {
+  const welcome = homepage.getLogin().text();
   expect(welcome.includes("world"));
 });
 //********************** */

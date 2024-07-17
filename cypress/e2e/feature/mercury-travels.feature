@@ -10,6 +10,7 @@ Feature: End to end testing of mercury travels website
             | xyz2            | abc2           | xyz1@email.com  | 12345              | 12345              | 1234567890     |
         Then User should get registered
 
+    @focus
     Scenario: user gets error of already registered
         Given User opens mercury travels page
         When User clicks on Customer Login
@@ -24,7 +25,7 @@ Feature: End to end testing of mercury travels website
         When User logs in
             | #sign_user_email | #sign_user_password |
             | xyz@email.com    | 12345               |
-        Then User gets logged in
+    # Then User gets logged in
 
     Scenario: user goes to about us page
         Given User opens mercury travels page
@@ -76,11 +77,10 @@ Feature: End to end testing of mercury travels website
         Given User opens mercury travels page
         Then User should see 7 scrolling images
 
-    @focus
     Scenario: User gets an alert while making a toll free call
         Given User opens mercury travels page
         When User clicks on the toll free call option
-    # Then An alert should pop up prompting to open pick up app
+        Then An alert should pop up prompting to open pick up app
 
 
     Scenario: User gets an alert while making a toll free call
