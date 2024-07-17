@@ -5,6 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:run": "cypress run",
+    "cy:chrome": "cypress run --headed --browser chrome --no-exit",
+    "cy:edge": "cypress run --headed --browser edge --no-exit",
     "cy:all": "cypress run --spec './cypress/e2e/feature/mercury-travels.feature' --headed --browser chrome --no-exit",
     "cy:parallel": "cypress-parallel -s cy:run -t 2 -d ./cypress/e2e/feature/ -a '\"--headed --browser chrome --no-exit\"'"
   },
